@@ -39,13 +39,21 @@ public class m4 {
                 case 2:
                     System.out.println("Insira o nome que deseja pesquisar: ");
                     String nomeParaPesquisar = scan.next();
+                    boolean found = false;
                     for (int contador = 0; contador < listaNomes.length; contador++) {
                         if (listaNomes[contador].equals(nomeParaPesquisar)) {
                             System.out.println("O nome existe no banco de dados!");
-                        }else{
-                            System.out.println("O nome não existe no banco de dados!");
+                            found = true;
+                            break;
                         }
                     }
+                    
+                    if (found == false) {
+                        System.out.println("O nome não existe no banco de dados!");
+                    }else{
+                        found = false;
+                    }
+
                     break;
                 case 3:
                     for (int contador = 0; contador < listaNomes.length; contador++) {
