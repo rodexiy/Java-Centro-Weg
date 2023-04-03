@@ -19,11 +19,11 @@ public class q8 {
         int somaDiagonalSecundaria = 0;
 
         for (int coluna = 0; coluna < M.length; coluna++){
-            somaLinha4 += M[4][coluna];
+            somaLinha4 += M[3][coluna];
         }  
 
         for (int linha = 0; linha < M.length; linha++){
-            somaColuna2 += M[linha][2];
+            somaColuna2 += M[linha][1];
         }  
 
         for (int linha = 0; linha < M.length; linha++){

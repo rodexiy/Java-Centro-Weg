@@ -1,8 +1,6 @@
-import java.util.Scanner;
 
 public class q11{
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
         double[][] matriz = new double[7][8];
 
         for (int linha = 0; linha < matriz.length; linha++){
@@ -17,9 +15,5 @@ public class q11{
             }
             System.out.println("");
         }
-
-            
-
-        scan.close();
     }
 }
