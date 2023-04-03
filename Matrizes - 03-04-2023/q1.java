@@ -22,8 +22,6 @@ public class q1{
 
         boolean continuar = true;
 
-        
-
         while (continuar) {
             System.out.println("[1] Somar");
             System.out.println("[2] Subtrair");
