@@ -27,7 +27,7 @@ public class Extra {
             String nome = scan.next();
             nomes[funcionario] = nome;
 
-            if (nome == null || nome.isEmpty()){
+            if (nome == null || nome.isEmpty() || nome.length() < 2){
                 System.out.println("Nome inválido!");
                 continue;
             }
