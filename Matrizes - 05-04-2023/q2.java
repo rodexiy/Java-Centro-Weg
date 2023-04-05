@@ -80,7 +80,7 @@ public class q2 {
             System.out.println("");
         }
 
-        System.out.println("todos diagonal principal e secundaria: ");
+        System.out.println("todos diagonal exceto principal e secundaria: ");
         for (int linha = 0; linha < matriz.length; linha++){
             for (int coluna = 0; coluna < matriz.length; coluna++){
                 if ((coluna == matriz.length - 1 - linha) || linha == coluna){

@@ -23,7 +23,9 @@ public class q7 {
             for (int linha = 0; linha < Tlinha; linha++){
                 for (int coluna = 0; coluna < Tcoluna; coluna++){
                     boolean lado = ((linha == 0 || linha == Tlinha - 1) && (coluna == 0 || coluna == Tcoluna - 1));
+                    //boolean meio = (linha == (matriz.length - 1) / 2 && coluna == (matriz.length - 1) / 2);
                     boolean meio = ((linha != 0 && coluna != 0) && (linha != Tlinha - 1 && coluna != Tcoluna - 1));
+                    
                     if (lado || meio) {
                         System.out.print(" "+ matriz[linha][coluna] + " ");
                     }else{
