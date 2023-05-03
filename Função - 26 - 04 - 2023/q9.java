@@ -15,10 +15,10 @@ public class q9 {
 
     static int multiplicar(int numero1, int numero2){
         int soma = 0;
-        for (int contador = numero1; contador >= 1; contador = contador / 2){
+        for (int contador = numero1; contador > 1; contador = contador / 2){
             numero2 *= 2;
 
-            if (numero2 % 2 == 0){
+            if (numero2 % 2 != 0){
                 soma += numero2;
             }
         }
