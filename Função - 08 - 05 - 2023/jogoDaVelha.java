@@ -4,12 +4,12 @@ import java.util.Scanner;
 public class jogoDaVelha {
     static String[][] tabuleiro = new String[3][3];
     static boolean continuar = true;
-    static boolean contraBot = true;
+    static boolean contraBot = false;
+    static int quantidadeRodadas = 0;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         while (continuar) {
-
 
             boolean adicionado = false;
             System.out.println("Vez de jogador 1");
@@ -25,6 +25,7 @@ public class jogoDaVelha {
                     System.out.println("Posição inválida! ");
                 }
             } while (!adicionado);
+            quantidadeRodadas++;
             
             verificar();
             adicionado = false;
@@ -51,6 +52,7 @@ public class jogoDaVelha {
                     adicionado = bot_escolherPosicao();
                 }
             } while (!adicionado);
+            quantidadeRodadas++;
             verificar();
 
         }
@@ -111,6 +113,15 @@ public class jogoDaVelha {
         verificarColunas();
         verificarDiagonalPrincipal();
         verificarDiagonalSecundaria();
+        verificarEmpate();
+    }
+
+    static void verificarEmpate(){
+        if (continuar && quantidadeRodadas == 9){
+            continuar = false;
+            System.out.println("Empate");
+            imprimirTabuleiro();
+        }
     }
 
     static void verificarGanhador(int quantidadeX, int quantidadeO) {
