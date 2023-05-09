@@ -1,14 +1,12 @@
 import java.time.LocalDate;
 
-import javax.tools.DocumentationTool.Location;
-
 public class Aluno {
     
     private String nome;
     private LocalDate dataDeNascimento;
     private Matricula matricula;
     private String cpf;
-    private Location endereco;
+    private String endereco;
     private String telefone;
     private String email;
     private String responsavel;
@@ -57,11 +55,11 @@ public class Aluno {
         return this.cpf;
     }
 
-    public void setEndereco(Location endereco){
+    public void setEndereco(String endereco){
         this.endereco = endereco;
     }
 
-    public Location getEndereco(){
+    public String getEndereco(){
         return this.endereco;
     }
 
@@ -78,7 +76,7 @@ public class Aluno {
     }
 
     public void setEmail(String email){
-        if (email.matches("[@]*")){
+        if (email.contains("@")){
             this.email = email;
         }else{
             System.out.println("Email inválido!");

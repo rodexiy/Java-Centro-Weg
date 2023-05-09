@@ -1,6 +1,6 @@
 public class UnidadesCurriculares {
     private Avaliacao avaliacao;
-    private float frequencia;
+    private Double frequencia;
     private Professor professor; 
 
     public void setAvaliacao(Avaliacao avaliacao){
@@ -11,7 +11,7 @@ public class UnidadesCurriculares {
         return this.avaliacao;
     }
 
-    public void setFrequencia(Float frequencia){
+    public void setFrequencia(Double frequencia){
         if (frequencia >= 0 && frequencia <= 100){
             this.frequencia = frequencia;
         }else{
@@ -19,7 +19,7 @@ public class UnidadesCurriculares {
         }
     }
 
-    public float getfrequencia(){
+    public Double getfrequencia(){
         return this.frequencia;
     }
 
