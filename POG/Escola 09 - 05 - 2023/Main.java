@@ -1,4 +1,8 @@
 public class Main {
+
+    /*
+     * Codigo principal onde é executado
+    */
     public static void main(String[] args){
         Aluno aluno = new Aluno();
         aluno.setNome("Matheus");
@@ -37,6 +41,31 @@ public class Main {
         matricula.setCurso(curso);
         aluno.setMatricula(matricula);
 
-        System.out.println(aluno);
+        System.out.println("Aluno: ");
+        System.out.println(aluno.getNome());
+        System.out.println(aluno.getCPF());
+        System.out.println(aluno.getEmail());
+        System.out.println(aluno.getEndereco());
+        System.out.println(aluno.getResponsavel());
+        System.out.println(aluno.getTelefone());
+        System.err.println(aluno.getDataDeNascimento());
+
+        System.out.println("Matricula");
+        System.err.println(aluno.getMatricula().getNumero());
+        System.err.println(aluno.getMatricula().getTurma());
+
+        System.out.println("Unidades Curriculares: ");
+        System.out.println(unidadesCurriculares.getfrequencia());
+        
+        System.out.println("Avaliação: ");
+        System.out.println(avaliacao.getNotas());
+
+        System.out.println("Professor: ");
+        System.out.println(professor.getNome());
+        System.out.println(professor.getCPF());
+        System.out.println(professor.getEmail());
+        System.out.println(professor.getEndereco());
+        System.out.println(professor.getTelefone());
+        System.err.println(professor.getDataDeNascimento());
     }
 }

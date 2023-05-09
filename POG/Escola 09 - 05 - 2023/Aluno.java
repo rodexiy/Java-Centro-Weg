@@ -1,7 +1,10 @@
 import java.time.LocalDate;
 
-public class Aluno {
-    
+/*
+ * Classe para representar o aluno 
+ * @author Daniel
+ */
+public class Aluno {    
     private String nome;
     private LocalDate dataDeNascimento;
     private Matricula matricula;
@@ -11,6 +14,8 @@ public class Aluno {
     private String email;
     private String responsavel;
 
+
+    /* Metodo para adicionar nome na classe aluno, contém verificações de tamanho e caracteres alfabeticos */
     public void setNome(String nome){
         if (nome.length() >= 3 && nome.matches("[A-Za-z]*")){
             this.nome = nome;
@@ -19,10 +24,12 @@ public class Aluno {
         }
     }
 
+    /* retorna o nome do aluno */
     public String getNome(){
         return this.nome;
     }
 
+    /* Método que adiciona data de nascimento, verifica se a data é valida e maior que 1900 */  
     public void setDataDeNascimento(int year, int month, int day){
         if (year > 1900 && year <= LocalDate.now().getYear() && month >= 1 && month <= 12 && day >= 1 && day <= 31){
             this.dataDeNascimento = LocalDate.of(year, month, day);
@@ -31,18 +38,22 @@ public class Aluno {
         }
     }
 
+    /* Retorna a data de nascimento */
     public LocalDate getDataDeNascimento(){
         return this.dataDeNascimento;
     }
 
+    /* Atribui a matricula à classe */
     public void setMatricula(Matricula matricula){
         this.matricula = matricula;
     }
 
+    /* Retorna a matricula */
     public Matricula getMatricula(){
         return this.matricula;
     }
 
+    /* Atribui o CPF à classe, contém verificações de números e tamanho máximo de 11, insira o CPF sem pontos e hífem. */
     public void setCPF(String cpf){
         if (cpf.length() == 11 && cpf.matches("[0-9]*")){
             this.cpf = cpf;
@@ -51,18 +62,22 @@ public class Aluno {
         }
     }
 
+    /* Retorna o CPF. */
     public String getCPF(){
         return this.cpf;
     }
 
+    /* Atribui o endereço a classe, não contém verificações. */
     public void setEndereco(String endereco){
         this.endereco = endereco;
     }
 
+    /* Retorna o endereço */
     public String getEndereco(){
         return this.endereco;
     }
 
+    /* Atribui o telefone à classe, possui verificações de número. */
     public void setTelefone(String telefone){
         if (telefone.matches("[0-9]*")){
             this.telefone = telefone;
@@ -71,10 +86,12 @@ public class Aluno {
         }
     }
 
+    /* Retorna a classe */
     public String getTelefone(){
         return this.telefone;
     }
 
+    /* Atribui o Email à classe, possui a verificação de @ */
     public void setEmail(String email){
         if (email.contains("@")){
             this.email = email;
@@ -83,10 +100,12 @@ public class Aluno {
         }
     }
 
+    /* Retorna o Email */
     public String getEmail(){
         return this.email;
     }
 
+     /* Metodo para adicionar nome na classe responsável, contém verificações de tamanho e caracteres alfabeticos */
     public void setResponsavel(String responsavel){
         if (nome.length() >= 3 && nome.matches("[A-Za-z]*")){
             this.responsavel = responsavel;
