@@ -7,6 +7,8 @@ public class Curso {
     private int cargaHoraria;
     private UnidadesCurriculares unidadesCurriculares;
 
+    
+
     /* Método que atribui o nome do curso, contem verificação de tamanho e caracteres*/
     public void setNome(String nome){
         if (nome.length() >= 3 && nome.matches("[A-Za-z]*")){
@@ -15,6 +17,8 @@ public class Curso {
             System.out.println("Nome inválido!");
         }
     }
+
+    
 
     /* Retorna o nome do curso */
     public String getNome(){
@@ -29,14 +33,17 @@ public class Curso {
         }
     }
 
+    /* Retorna a carga horária do curso */
     public int getCargaHoraria(){
         return this.cargaHoraria;
     }
-
+    
+    /* Atribui as unidades curriculares ao curso */
     public void setUnidadesCurriculares(UnidadesCurriculares unidadesCurriculares){
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
+    /* Retorna as unidades curriculares do curso */
     public UnidadesCurriculares getUnidadesCurriculares(){
         return this.unidadesCurriculares;
     }

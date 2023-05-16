@@ -1,5 +1,9 @@
 import java.time.LocalDate;
 
+/*
+ * Classe para representar o Professor
+ * @author Daniel
+ */
 
 public class Professor {
     private String nome;
@@ -10,80 +14,106 @@ public class Professor {
     private String telefone;
     private String email;
 
-    public void setNome(String nome){
-        if (nome.length() >= 3 && nome.matches("[A-Za-z]*")){
+
+    /*
+     * Metodo para adicionar nome na classe Professor, contém verificações de
+     * tamanho e caracteres alfabeticos
+     */
+    public void setNome(String nome) {
+        if (nome.length() >= 3 && nome.matches("[A-Za-z]*")) {
             this.nome = nome;
-        }else{
+        } else {
             System.out.println("Nome inválido!");
         }
     }
 
-    public String getNome(){
+    /**
+     * @return String
+     */
+    /* retorna o nome do aluno */
+    public String getNome() {
         return this.nome;
     }
 
-    public void setDataDeNascimento(int year, int month, int day){
-        if (year > 1900 && year <= LocalDate.now().getYear() && month >= 1 && month <= 12 && day >= 1 && day <= 31){
+    /*
+     * Método que adiciona data de nascimento, verifica se a data é valida e maior
+     * que 1900
+     */
+    public void setDataDeNascimento(int year, int month, int day) {
+        if (year > 1900 && year <= LocalDate.now().getYear() && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
             this.dataDeNascimento = LocalDate.of(year, month, day);
-        }else{
+        } else {
             System.out.println("Data de nascimento inválida!");
         }
     }
 
-    public LocalDate getDataDeNascimento(){
+    /* Retorna a data de nascimento */
+    public LocalDate getDataDeNascimento() {
         return this.dataDeNascimento;
     }
 
-    public void setMatricula(Matricula matricula){
+    /* Atribui a matricula à classe */
+    public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
     }
 
-    public Matricula getMatricula(){
+    /* Retorna a matricula */
+    public Matricula getMatricula() {
         return this.matricula;
     }
 
-    public void setCPF(String cpf){
-        if (cpf.length() == 11 && cpf.matches("[0-9]*")){
+    /*
+     * Atribui o CPF à classe, contém verificações de números e tamanho máximo de
+     * 11, insira o CPF sem pontos e hífem.
+     */
+    public void setCPF(String cpf) {
+        if (cpf.length() == 11 && cpf.matches("[0-9]*")) {
             this.cpf = cpf;
-        }else{
+        } else {
             System.out.println("CPF inválido!");
         }
     }
 
-    public String getCPF(){
+    /* Retorna o CPF. */
+    public String getCPF() {
         return this.cpf;
     }
 
-    public void setEndereco(String endereco){
+    /* Atribui o endereço a classe, não contém verificações. */
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
-    public String getEndereco(){
+    /* Retorna o endereço */
+    public String getEndereco() {
         return this.endereco;
     }
 
-
-    public void setTelefone(String telefone){
-        if (telefone.matches("[0-9]*")){
+    /* Atribui o telefone à classe, possui verificações de número. */
+    public void setTelefone(String telefone) {
+        if (telefone.matches("[0-9]*")) {
             this.telefone = telefone;
-        }else{
+        } else {
             System.out.println("Telefone Inválido");
         }
     }
 
-    public String getTelefone(){
+    /* Retorna a o telefone da classe */
+    public String getTelefone() {
         return this.telefone;
     }
 
-    public void setEmail(String email){
-        if (email.contains("@")){
+    /* Atribui o Email à classe, possui a verificação de @ */
+    public void setEmail(String email) {
+        if (email.contains("@")) {
             this.email = email;
-        }else{
+        } else {
             System.out.println("Email inválido!");
         }
     }
 
-    public String getEmail(){
+    /* Retorna o Email */
+    public String getEmail() {
         return this.email;
     }
 }

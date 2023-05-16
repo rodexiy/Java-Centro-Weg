@@ -1,4 +1,5 @@
-import java.time.LocalDate;
+
+
 
 /*
  * Classe para representar o aluno 
@@ -6,7 +7,6 @@ import java.time.LocalDate;
  */
 public class Aluno {    
     private String nome;
-    private LocalDate dataDeNascimento;
     private Matricula matricula;
     private String cpf;
     private String endereco;
@@ -15,13 +15,19 @@ public class Aluno {
     private String responsavel;
 
 
+    public Aluno(String nome) {
+        setNome(nome);
+    }
+
     
     /* Metodo para adicionar nome na classe aluno, contém verificações de tamanho e caracteres alfabeticos */
-    public void setNome(String nome){
-        if (nome.length() >= 3 && nome.matches("[A-Za-z]*")){
+    public boolean setNome(String nome){
+        if (nome.length() > 0 && nome.matches("[A-Za-z]*")){
             this.nome = nome;
+            return true;
         }else{
             System.out.println("Nome inválido!");
+            return false;
         }
     }
 
@@ -31,36 +37,39 @@ public class Aluno {
         return this.nome;
     }
 
-    /* Método que adiciona data de nascimento, verifica se a data é valida e maior que 1900 */  
-    public void setDataDeNascimento(int year, int month, int day){
-        if (year > 1900 && year <= LocalDate.now().getYear() && month >= 1 && month <= 12 && day >= 1 && day <= 31){
-            this.dataDeNascimento = LocalDate.of(year, month, day);
-        }else{
-            System.out.println("Data de nascimento inválida!");
-        }
-    }
-
-    /* Retorna a data de nascimento */
-    public LocalDate getDataDeNascimento(){
-        return this.dataDeNascimento;
-    }
-
-    /* Atribui a matricula à classe */
-    public void setMatricula(Matricula matricula){
-        this.matricula = matricula;
-    }
-
-    /* Retorna a matricula */
-    public Matricula getMatricula(){
-        return this.matricula;
-    }
-
     /* Atribui o CPF à classe, contém verificações de números e tamanho máximo de 11, insira o CPF sem pontos e hífem. */
-    public void setCPF(String cpf){
-        if (cpf.length() == 11 && cpf.matches("[0-9]*")){
+    public boolean setCPF(String cpf){
+        boolean cpfValido = true;
+        String[] cpfSplitPonto = cpf.split("[.]");
+        String[] cpfSplitIfen = cpf.split("-");
+
+        if (cpfSplitPonto.length != 3) {
+            cpfValido = false;    
+        }
+        if (cpfSplitIfen.length != 2){
+            cpfValido = false;   
+        }
+
+        for (int contadorPonto = 0; contadorPonto < 2; contadorPonto++){
+            if (!cpfSplitPonto[contadorPonto].matches("[0-9]*")) {
+                cpfValido = false;
+            } 
+        }
+
+        if (!cpfSplitPonto[2].split("-")[0].matches("[0-9]*")){
+            System.out.println("Inv");
+        }
+
+        if (!cpfSplitIfen[1].matches("[0-9]*")) {
+            cpfValido = false;
+        } 
+
+        if (cpfValido) {
             this.cpf = cpf;
+            return true;
         }else{
             System.out.println("CPF inválido!");
+            return false;
         }
     }
 
@@ -69,9 +78,27 @@ public class Aluno {
         return this.cpf;
     }
 
+
+    /* Atribui a matricula à classe */
+    public boolean setMatricula(Matricula matricula){
+        this.matricula = matricula;
+        return true;
+    }
+
+    /* Retorna a matricula */
+    public Matricula getMatricula(){
+        return this.matricula;
+    }
+
+
     /* Atribui o endereço a classe, não contém verificações. */
-    public void setEndereco(String endereco){
-        this.endereco = endereco;
+    public boolean setEndereco(String endereco){
+        if (endereco.length() > 0){
+            this.endereco = endereco;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /* Retorna o endereço */
@@ -80,11 +107,13 @@ public class Aluno {
     }
 
     /* Atribui o telefone à classe, possui verificações de número. */
-    public void setTelefone(String telefone){
+    public boolean setTelefone(String telefone){
         if (telefone.matches("[0-9]*")){
             this.telefone = telefone;
+            return true;
         }else{
             System.out.println("Telefone Inválido");
+            return false;
         }
     }
 
@@ -94,11 +123,13 @@ public class Aluno {
     }
 
     /* Atribui o Email à classe, possui a verificação de @ */
-    public void setEmail(String email){
+    public boolean setEmail(String email){
         if (email.contains("@")){
             this.email = email;
+            return true;
         }else{
             System.out.println("Email inválido!");
+            return false;
         }
     }
 
@@ -108,11 +139,13 @@ public class Aluno {
     }
 
      /* Metodo para adicionar nome na classe responsável, contém verificações de tamanho e caracteres alfabeticos */
-    public void setResponsavel(String responsavel){
-        if (nome.length() >= 3 && nome.matches("[A-Za-z]*")){
+    public boolean setResponsavel(String responsavel){
+        if (nome.length() > 0 && nome.matches("[A-Za-z]*")){
             this.responsavel = responsavel;
+            return true;
         }else{
             System.out.println("Responsável inválido!");
+            return false;
         }
     }
 
