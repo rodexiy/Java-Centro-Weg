@@ -1,0 +1,7 @@
+public class CarrinhoDeCompra {
+    private int quantidade;
+    private double valorTotal;
+    private Cliente cliente;
+
+
+}
