@@ -170,14 +170,6 @@ public class Cliente {
         }else
             return false;
     }
-    /**
-     * @param login login fornecido
-     * @return (boolean)
-     * retorna verdadeiro se o nome de login for igual ao inserido
-     * */
-    public boolean logar(String login){
-        return (this.login.equals(getLogin()));
-    }
 
     /**
      * @param nome nome de login
@@ -340,6 +332,7 @@ public class Cliente {
         FormasValidas.add("credito");
         FormasValidas.add("debito");
         FormasValidas.add("cartao");
+        FormasValidas.add("carteira");
 
         if (!FormasValidas.contains(formaDePagamento)) {return false;}
 
