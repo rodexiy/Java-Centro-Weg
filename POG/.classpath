@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Escola 09 - 05 - 2023"/>
+	<classpathentry kind="src" path="Loja virtual/src"/>
+	<classpathentry kind="src" path="SENAI - 09 - 05 - 2023/src"/>
+	<classpathentry kind="output" path="Loja virtual/bin"/>
+</classpath>
