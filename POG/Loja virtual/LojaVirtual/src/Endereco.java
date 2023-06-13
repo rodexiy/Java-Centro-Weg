@@ -1,4 +1,3 @@
-
 public class Endereco {
     private String indentificacao;
     private String rua;
