@@ -3,7 +3,7 @@
  */
 public class Produto {
     private String nome;
-    private double preco;
+    private float preco;
     private String categoria;
     private String modelo;
     private String marca;
@@ -55,7 +55,7 @@ public class Produto {
      *
      * @return O preço do produto.
      */
-    public double getPreco() {
+    public float getPreco() {
         return preco;
     }
 
@@ -65,7 +65,7 @@ public class Produto {
      * @param preco O preço a ser definido.
      * @return true se o preço for válido e definido com sucesso, caso contrário false.
      */
-    public boolean setPreco(double preco) {
+    public boolean setPreco(float preco) {
         if (preco <= 0) {
             return false;
         }

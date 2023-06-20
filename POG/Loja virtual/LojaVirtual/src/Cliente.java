@@ -18,9 +18,30 @@ public class Cliente {
     private String telefone;
     private double carteira;
     private String formaDePagamento;
+    private Carrinho carrinho;
 
+    
     // Métodos
+    
+    public void Cliente(String nome, String cpf, Date dataDeNascimento, String login, String senha) {
+    	setNome(nome);
+    	setCpf(cpf);
+    	setDataDeNascimento(dataDeNascimento);
+    	setLogin(login);
+    	setSenha(senha);
+    }
 
+    
+    public boolean setCarrinho(Carrinho carrinho) {
+    	this.carrinho = carrinho;
+    	return true;
+    }
+    
+    public Carrinho getCarrinho() {
+    	return this.carrinho;
+    }
+    
+    
     /**
      * @return String
      * retorna o nome do cliente
@@ -174,12 +195,9 @@ public class Cliente {
      * Cadastra o usuário a classe
      * */
     public boolean cadastrar(String nome, String senha) {
-        boolean callbackNome = setNome(nome);
-        if (callbackNome){
-            setSenha(senha);
-            return true;
-        }
-        return false;
+        setLogin(nome);
+        setSenha(senha);
+        return true;
     }
 
     /**

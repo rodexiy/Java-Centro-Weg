@@ -6,10 +6,9 @@ import java.util.ArrayList;
 public class Pagamento {
     private String forma;
     private int parcelamento;
-    private double desconto;
-    private double subTotal;
-    private double total;
-    private double frete;
+    private float desconto;
+    private float total;
+    private float frete;
     private Venda venda;
     private Cliente cliente;
 
@@ -76,7 +75,7 @@ public class Pagamento {
      *
      * @return O desconto aplicado ao pagamento.
      */
-    public double getDesconto() {
+    public float getDesconto() {
         return desconto;
     }
 
@@ -85,26 +84,37 @@ public class Pagamento {
      *
      * @param desconto O desconto a ser aplicado.
      */
-    public void setDesconto(double desconto) {
+    public void setDesconto(float desconto) {
         this.desconto = desconto;
     }
 
-    /**
-     * Obtém o subtotal do pagamento.
-     *
-     * @return O subtotal do pagamento.
-     */
-    public double getSubTotal() {
-        return this.subTotal;
+    public boolean setTotal(float total) {
+    	if (this.total >= 0) {
+    		this.total = total;
+    		return true;
+    	}
+    	return false;
     }
-
+    
+    public float getTotal() {
+    	return this.total;
+    }
+    
+    
     /**
-     * Define o subtotal do pagamento.
-     *
-     * @param subTotal O subtotal a ser definido.
+     * Calcula o preço final do pagamento, com os descontos e frete.
+     * @return 
      */
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
+    
+    public float calcularPrecoFinal() {	
+    	Carrinho carrinho = this.cliente.getCarrinho();
+    	float precoComDesconto = carrinho.getSubtotal() - (carrinho.getSubtotal() * getDesconto() / 100);
+    	float precoComFrete = precoComDesconto + getFrete();
+    	
+    	setTotal(precoComFrete);
+    	
+    	return precoComFrete;
+    	
     }
 
     /**
@@ -112,7 +122,7 @@ public class Pagamento {
      *
      * @return O valor do frete do pagamento.
      */
-    public double getFrete() {
+    public float getFrete() {
         return frete;
     }
 
@@ -121,7 +131,7 @@ public class Pagamento {
      *
      * @param frete O valor do frete a ser definido.
      */
-    public void setFrete(double frete) {
+    public void setFrete(float frete) {
         this.frete = frete;
     }
 
@@ -142,16 +152,6 @@ public class Pagamento {
         this.venda = venda;
     }
 
-    /**
-     * Atualiza o valor total do pagamento com base no desconto, frete e número de parcelas.
-     */
-    public void atualizarTotal() {
-        double valorDescontato = (getSubTotal() * getDesconto()) / 100;
-        double valorComFrete = valorDescontato + getFrete();
-        double valorPorParcela = valorComFrete / getParcelamento();
-
-        this.total = valorPorParcela;
-    }
 
     /**
      * Obtém o cliente associado ao pagamento.
@@ -171,18 +171,27 @@ public class Pagamento {
         this.cliente = cliente;
     }
 
-
+    public double calcularParcelas() {
+    	return getTotal() / getParcelamento(); 
+    }
+ 
     /**
      * Realiza o pagamento.
      *
      * @return true se o pagamento for bem-sucedido, caso contrário false.
      */
     public boolean realizarPagamento() {
-        double valorAPagar = getSubTotal();
+        double valorAPagar = calcularPrecoFinal();
         Cliente cliente = getCliente();
+        cliente.getCarrinho().calcularSubtotal();
+        
 
+    	Venda venda = new Venda();
+    	setVenda(venda);
+        
         if (cliente.getFormasDePagamento().equals("carteira")) {
             if (cliente.getCarteira() >= valorAPagar) {
+            	venda.gerarNotaFiscal(this);
                 return true;
             }
         }
