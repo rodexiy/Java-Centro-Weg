@@ -191,7 +191,10 @@ public class Pagamento {
         
         if (cliente.getFormasDePagamento().equals("carteira")) {
             if (cliente.getCarteira() >= valorAPagar) {
+            	System.out.println("--- Comprou ---");
             	venda.gerarNotaFiscal(this);
+            	
+            	cliente.
                 return true;
             }
         }

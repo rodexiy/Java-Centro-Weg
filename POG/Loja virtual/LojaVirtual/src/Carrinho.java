@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Carrinho {
     private ArrayList<Integer> quantidades = new ArrayList<Integer>();
     private ArrayList<Produto> produtos = new ArrayList<>();
-    private float subtotal;
+    private float subtotal = 0;
     
     public boolean addProduto(Produto produto, Integer quantidade) {
     	produtos.add(produto);
