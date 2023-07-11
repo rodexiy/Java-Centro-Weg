@@ -5,9 +5,10 @@ import java.util.GregorianCalendar;
 import java.time.LocalDate;
 
 
-
 public class Cliente {
 
+	
+	
     private String nome;
     private String cpf;
     private Date dataDeNascimento;
@@ -19,9 +20,20 @@ public class Cliente {
     private double carteira;
     private String formaDePagamento;
     private Carrinho carrinho;
+	private Boolean cadastrado = false;
 
     
     // Métodos
+	
+	
+    public Boolean getCadastrado() {
+		return cadastrado;
+	}
+
+
+	public void setCadastrado(Boolean cadastrado) {
+		this.cadastrado = cadastrado;
+	}
     
     public void Cliente(String nome, String cpf, Date dataDeNascimento, String login, String senha) {
     	setNome(nome);

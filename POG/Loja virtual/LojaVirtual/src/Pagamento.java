@@ -194,7 +194,6 @@ public class Pagamento {
             	System.out.println("--- Comprou ---");
             	venda.gerarNotaFiscal(this);
             	
-            	cliente.
                 return true;
             }
         }

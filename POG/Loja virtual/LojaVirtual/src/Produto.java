@@ -11,6 +11,19 @@ public class Produto {
     private int quantidadeEmEstoque;
     private String descricao;
     private int limiteDeCompra;
+    
+    
+    
+    
+    public int getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
+	}
+
+	private int estoque;
 
     /**
      * Obtém o nome do produto.
@@ -202,7 +215,7 @@ public class Produto {
      * @return true se a descrição for válida e definida com sucesso, caso contrário false.
      */
     public boolean setDescricao(String descricao) {
-        if (descricao.length() >= 1000) {
+        if (descricao.length() <= 1000) {
             this.descricao = descricao;
             return true;
         } else {
