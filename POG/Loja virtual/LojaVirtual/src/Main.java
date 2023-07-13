@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -13,11 +14,11 @@ import java.util.ArrayList;
 
 public class Main {
 		
+	static Cliente clienteAtual;
+	static ArrayList<Cliente> clientesCadastrados = new ArrayList<Cliente>();
 	
-	
-    public static void main(String[] args){
-    	ArrayList<Cliente> clientesCadastrados = new ArrayList<Cliente>();
-		Cliente clienteAtual;
+    public static void main(String[] args) throws ParseException{
+
     	
 		TelaLoginCadastro telaLoginCadastro = new TelaLoginCadastro();
 		telaLoginCadastro.setVisible(true);
@@ -55,18 +56,18 @@ public class Main {
 				
 			}
 		});
+		
 		telaLogin.btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				final Cliente clienteAtual = telaLogin.verificarLoginUsuarios(clientesCadastrados);
+				clienteAtual = telaLogin.verificarLoginUsuarios(clientesCadastrados);
 				
-				if (!clienteAtual .getCadastrado()) {
+				if (!clienteAtual.getCadastrado()) {
 					JOptionPane.showMessageDialog(telaLogin, "Nome ou senha inválido!");
 				}
-				
-				System.out.println("Nome: "+ clienteAtual.getNome());
+				System.out.println("Nome: "+ clienteAtual.getNome()+ " logou com sucesso!");
 			}
 		});
 		
-    	
     }
+    
 }

@@ -77,7 +77,7 @@ public class TelaLogin extends JFrame {
 				
 				System.out.println(clienteValidar.getSenha());
 				String nome = tfNome.getText();
-				String senha = tfNome.getText();
+				String senha = tfSenha.getText();
 				if (clienteValidar.verificarLogin(nome, senha)) {
 					return clientesCadastrados.get(index);
 				}

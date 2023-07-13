@@ -292,8 +292,13 @@ public class Cliente {
      * formato: DD xxxxx-xxxx
      * */
     public boolean setTelefone(String telefone) {
-        telefone = telefone.replace("\\s", "");
+        telefone = telefone.replace(" ", "");
         telefone = telefone.replace("-", "");
+        telefone = telefone.replace("(", "");
+        telefone = telefone.replace(")", "");
+        
+        
+        System.out.println(telefone);
         if (telefone.length() != 11){ return false;}
         Integer[] codigosDDD = {
                 11, 12, 13, 14, 15, 16, 17, 18, 19,

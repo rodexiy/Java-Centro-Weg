@@ -63,5 +63,4 @@ public class TelaLoginCadastro extends JFrame {
 		btnCadastro.setBounds(174, 115, 89, 23);
 		contentPane.add(btnCadastro);
 	}
-
 }

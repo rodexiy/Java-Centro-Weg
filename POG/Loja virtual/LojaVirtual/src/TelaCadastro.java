@@ -3,19 +3,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
+import javax.swing.JFormattedTextField;
 
 
 public class TelaCadastro extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfNome;
-	private JTextField tfTelefone;
 	private JTextField tfEmail;
 	private JTextField tfDataDeNascimento;
 	private JTextField tfSenha;
@@ -23,6 +25,7 @@ public class TelaCadastro extends JFrame {
 	private JTextField tfCEP;
 	
 	public JButton btnCadastrar;
+	private JFormattedTextField tfTelefone;
 
 	/**
 	 * Launch the application.
@@ -42,8 +45,9 @@ public class TelaCadastro extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public TelaCadastro() {
+	public TelaCadastro() throws ParseException {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,23 +61,23 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Senha");
-		lblNewLabel_1.setBounds(10, 139, 46, 14);
+		lblNewLabel_1.setBounds(10, 179, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Confirmar senha");
-		lblNewLabel_1_1.setBounds(10, 163, 79, 14);
+		lblNewLabel_1_1.setBounds(10, 203, 79, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("DataDeNascimento");
-		lblNewLabel_1_1_1.setBounds(10, 114, 98, 14);
+		lblNewLabel_1_1_1.setBounds(10, 154, 98, 14);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Telefone");
-		lblNewLabel_2.setBounds(10, 64, 46, 14);
+		lblNewLabel_2.setBounds(10, 96, 46, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Email");
-		lblNewLabel_3.setBounds(10, 89, 46, 14);
+		lblNewLabel_3.setBounds(10, 127, 46, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("CEP");
@@ -85,29 +89,24 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(tfNome);
 		tfNome.setColumns(10);
 		
-		tfTelefone = new JTextField();
-		tfTelefone.setBounds(57, 61, 86, 20);
-		contentPane.add(tfTelefone);
-		tfTelefone.setColumns(10);
-		
 		tfEmail = new JTextField();
-		tfEmail.setBounds(57, 86, 86, 20);
+		tfEmail.setBounds(57, 124, 86, 20);
 		contentPane.add(tfEmail);
 		tfEmail.setColumns(10);
 		
 		tfDataDeNascimento = new JTextField();
-		tfDataDeNascimento.setBounds(108, 111, 86, 20);
+		tfDataDeNascimento.setBounds(108, 151, 86, 20);
 		contentPane.add(tfDataDeNascimento);
 		tfDataDeNascimento.setColumns(10);
 		
 		tfSenha = new JTextField();
-		tfSenha.setBounds(99, 136, 86, 20);
+		tfSenha.setBounds(99, 176, 86, 20);
 		contentPane.add(tfSenha);
 		tfSenha.setColumns(10);
 		
 		tfConfirmarSenha = new JTextField();
 		tfConfirmarSenha.setColumns(10);
-		tfConfirmarSenha.setBounds(99, 160, 86, 20);
+		tfConfirmarSenha.setBounds(99, 200, 86, 20);
 		contentPane.add(tfConfirmarSenha);
 		
 		tfCEP = new JTextField();
@@ -118,6 +117,13 @@ public class TelaCadastro extends JFrame {
 		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setBounds(335, 227, 89, 23);
 		contentPane.add(btnCadastrar);
+		
+		MaskFormatter mascaraTelefone = new MaskFormatter("'(##')' #####'-####");
+
+		
+		tfTelefone = new JFormattedTextField(mascaraTelefone);
+		tfTelefone.setBounds(64, 90, 98, 23);
+		contentPane.add(tfTelefone);
 	}
 	
 	String validarCadastro() {
