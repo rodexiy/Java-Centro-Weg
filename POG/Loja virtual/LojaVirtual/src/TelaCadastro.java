@@ -1,3 +1,5 @@
+
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -119,8 +121,6 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		MaskFormatter mascaraTelefone = new MaskFormatter("'(##')' #####'-####");
-
-		
 		tfTelefone = new JFormattedTextField(mascaraTelefone);
 		tfTelefone.setBounds(64, 90, 98, 23);
 		contentPane.add(tfTelefone);

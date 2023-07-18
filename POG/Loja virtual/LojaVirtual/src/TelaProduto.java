@@ -1,3 +1,5 @@
+
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -105,7 +107,7 @@ public class TelaProduto extends JFrame {
 		lbPreco.setBounds(10, 43, 45, 19);
 		contentPane.add(lbPreco);
 		
-		JLabel lbDescricao = new JLabel("Descrição");
+		JLabel lbDescricao = new JLabel("Descricao");
 		lbDescricao.setHorizontalAlignment(SwingConstants.CENTER);
 		lbDescricao.setForeground(new Color(207, 207, 207));
 		lbDescricao.setBounds(225, 12, 60, 19);

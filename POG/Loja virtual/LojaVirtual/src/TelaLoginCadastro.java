@@ -1,3 +1,5 @@
+
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -49,12 +51,6 @@ public class TelaLoginCadastro extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				
-			}
-		});
 		btnLogin.setBounds(174, 81, 89, 23);
 		contentPane.add(btnLogin);
 		
