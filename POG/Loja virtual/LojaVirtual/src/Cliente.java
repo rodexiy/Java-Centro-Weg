@@ -31,16 +31,13 @@ public class Cliente {
 	}
 
 
+
 	public void setCadastrado(Boolean cadastrado) {
 		this.cadastrado = cadastrado;
 	}
     
-    public void Cliente(String nome, String cpf, Date dataDeNascimento, String login, String senha) {
-    	setNome(nome);
-    	setCpf(cpf);
-    	setDataDeNascimento(dataDeNascimento);
-    	setLogin(login);
-    	setSenha(senha);
+    public Cliente() {
+  
     }
 
     
