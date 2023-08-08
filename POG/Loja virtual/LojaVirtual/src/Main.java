@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 public class Main {
 		
@@ -23,12 +24,10 @@ public class Main {
 	
 	
     public static void main(String[] args) throws ParseException{
-
-    	
-    	
     	Produto computador = new Produto();
     	computador.setNome("Computador");
     	computador.setPreco(20000);
+    	computador.setDescricao("Processador Ryzen 7 5800X, 32gb de RAM, B550m Aorus Elite, 2tb ssd");
     	produtosTecnologia.add(computador);
     	produtosCadastrados.add(computador);
     	
@@ -87,22 +86,72 @@ public class Main {
 			}
 		});
 		
-		telaPrincipal.miTecnologia.addActionListener(new ActionListener() {
+		telaCadastro.btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				telaPrincipal.AtualizarProdutos(produtosTecnologia);
-				Object[] componentes = telaPrincipal.getComponents();
-				for (int i = 0; i < componentes.length; i++) {
-					System.out.println(componentes[i]);
-					if (componentes[i].getClass().getSimpleName() != "JButton") {continue;};
-					// JButton botao = componentes[i];
-					
-					
-				}
+				telaCadastro.setVisible(false);
+				telaLoginCadastro.setVisible(true);
 			}
 		});
+		
+		telaLogin.btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				telaLogin.setVisible(false);
+				telaLoginCadastro.setVisible(true);
+			}
+		});
+		
+		
+
+		
+		JPanel MostrarProduto = new JPanel();
+		MostrarProduto.setBounds(0, 0, 436, 241);
+		telaPrincipal.getContentPane().add(MostrarProduto);
+		
+		JPanel Carrinho = new JPanel();
+		Carrinho.setBounds(0, 0, 436, 241);
+		telaPrincipal.getContentPane().add(Carrinho);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 436, 241);
+		telaPrincipal.getContentPane().add(panel);
+		
+
+		//botao sair
+		telaPrincipal.miSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				telaPrincipal.setVisible(false);
+				telaLoginCadastro.setVisible(true);
+			}
+		});
+		
+		telaPrincipal.btnProdutoVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				telaPrincipal.InterfaceProdutos.setVisible(true);
+				telaPrincipal.InterfaceProduto.setVisible(false);
+			}
+		});
+		
+		
+		for (int index = 0; index < produtosCadastrados.size(); index++) {
+			JButton botaoProduto = new JButton();
+			Produto produtoAtual = produtosCadastrados.get(index);
+			
+			botaoProduto.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					telaPrincipal.InterfaceProdutos.setVisible(false);
+					telaPrincipal.InterfaceProduto.setVisible(true);
+					telaPrincipal.atualizarTelaProduto(produtoAtual);
+					
+				}
+			});
+			
+			botaoProduto.setText(produtoAtual.getNome()+ " | R$" +produtoAtual.getPreco());
+			telaPrincipal.InterfaceProdutos.add(botaoProduto);
+			
+		}
+		
 		
 
 		
     }
-    
 }

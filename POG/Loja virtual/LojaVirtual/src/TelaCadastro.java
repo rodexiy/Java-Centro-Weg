@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
+import javax.swing.JPasswordField;
 
 
 public class TelaCadastro extends JFrame {
@@ -22,12 +23,13 @@ public class TelaCadastro extends JFrame {
 	private JTextField tfNome;
 	private JTextField tfEmail;
 	private JTextField tfDataDeNascimento;
-	private JTextField tfSenha;
-	private JTextField tfConfirmarSenha;
 	private JTextField tfCEP;
 	
 	public JButton btnCadastrar;
 	private JFormattedTextField tfTelefone;
+	private JPasswordField tfSenha;
+	private JPasswordField tfConfirmarSenha;
+	public JButton btnVoltar;
 
 	/**
 	 * Launch the application.
@@ -101,16 +103,6 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(tfDataDeNascimento);
 		tfDataDeNascimento.setColumns(10);
 		
-		tfSenha = new JTextField();
-		tfSenha.setBounds(99, 176, 86, 20);
-		contentPane.add(tfSenha);
-		tfSenha.setColumns(10);
-		
-		tfConfirmarSenha = new JTextField();
-		tfConfirmarSenha.setColumns(10);
-		tfConfirmarSenha.setBounds(99, 200, 86, 20);
-		contentPane.add(tfConfirmarSenha);
-		
 		tfCEP = new JTextField();
 		tfCEP.setColumns(10);
 		tfCEP.setBounds(294, 30, 86, 20);
@@ -124,6 +116,18 @@ public class TelaCadastro extends JFrame {
 		tfTelefone = new JFormattedTextField(mascaraTelefone);
 		tfTelefone.setBounds(64, 90, 98, 23);
 		contentPane.add(tfTelefone);
+		
+		tfSenha = new JPasswordField();
+		tfSenha.setBounds(105, 176, 89, 20);
+		contentPane.add(tfSenha);
+		
+		tfConfirmarSenha = new JPasswordField();
+		tfConfirmarSenha.setBounds(108, 200, 89, 20);
+		contentPane.add(tfConfirmarSenha);
+		
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(236, 227, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 	
 	String validarCadastro() {
@@ -155,6 +159,7 @@ public class TelaCadastro extends JFrame {
 			return "senha invalida";
 		}
 		
+		
 		return "cadastrado";
 	};
 	
@@ -176,7 +181,6 @@ public class TelaCadastro extends JFrame {
 			cliente.setSenha(senha);
 			cliente.setLogin(nome);
 			cliente.setCadastrado(true);
-			
 		}else {
 			JOptionPane.showMessageDialog(btnCadastrar, callback);
 		}

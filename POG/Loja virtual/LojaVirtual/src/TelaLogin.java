@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 
 
@@ -16,13 +19,14 @@ public class TelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	public JTextField tfNome;
-	public JTextField tfSenha;
 
 	/**
 	 * Launch the application.
 	 */
 	
 	public JButton btnLogar;  
+	public JButton btnVoltar;
+	private JPasswordField tfSenha;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -62,15 +66,20 @@ public class TelaLogin extends JFrame {
 		lblSenha.setBounds(124, 103, 46, 14);
 		contentPane.add(lblSenha);
 		
-		tfSenha = new JTextField();
-		tfSenha.setColumns(10);
-		tfSenha.setBounds(180, 100, 115, 20);
-		contentPane.add(tfSenha);
-		
 		btnLogar = new JButton("Logar");
 
 		btnLogar.setBounds(165, 153, 89, 23);
 		contentPane.add(btnLogar);
+		
+		btnVoltar = new JButton("Voltar");
+
+
+		btnVoltar.setBounds(10, 229, 89, 23);
+		contentPane.add(btnVoltar);
+		
+		tfSenha = new JPasswordField();
+		tfSenha.setBounds(180, 100, 115, 20);
+		contentPane.add(tfSenha);
 	}
 	
 	 Cliente verificarLoginUsuarios(ArrayList<Cliente> clientesCadastrados) {

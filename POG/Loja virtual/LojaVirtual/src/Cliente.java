@@ -66,9 +66,9 @@ public class Cliente {
     public boolean setNome(String nome) {
         if (nome.length() > 0 && nome.matches("[A-Za-z\\s]*")) {
             this.nome = nome;
-            return  true;
+            return true;
         }else
-            return  false;
+            return false;
     }
 
     /**

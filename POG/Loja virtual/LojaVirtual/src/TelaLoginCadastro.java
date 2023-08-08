@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class TelaLoginCadastro extends JFrame {
 
@@ -47,7 +48,8 @@ public class TelaLoginCadastro extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Selecione a op\u00E7\u00E3o");
-		lblNewLabel.setBounds(174, 11, 86, 14);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(137, 32, 165, 14);
 		contentPane.add(lblNewLabel);
 		
 		btnLogin = new JButton("Login");
